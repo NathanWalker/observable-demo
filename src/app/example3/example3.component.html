@@ -1,0 +1,8 @@
+<div class="action-btns">
+  <button (click)="cancelAsync()" [ngClass]="{done: done}">{{btnText}}</button>
+</div>
+<ul>
+  <li *ngFor="let user of users$ | async">
+    {{user.name.first}} {{user.name.last}}
+  </li>
+</ul>

@@ -1,3 +1,6 @@
-<h1>
-  {{title}}
-</h1>
+<nav>
+  <a [routerLink]="['']" routerLinkActive="active">Auto-Cancelable Requests</a>
+  <a [routerLink]="['/example2']">Subject vs. BehaviorSubject</a>
+  <a [routerLink]="['/example3']">Polling with Terminator</a>
+</nav>
+<router-outlet></router-outlet>

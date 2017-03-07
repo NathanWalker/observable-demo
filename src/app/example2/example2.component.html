@@ -1,0 +1,21 @@
+<div class="action-btns">
+  <button (click)="getUser()">Get Users</button>
+</div>
+<div>
+  <div style="float:left;width:300px;">
+    <h3>Subject</h3>
+    <ul>
+      <li *ngFor="let user of usersSubject$ | async">
+        {{user.name.first}} {{user.name.last}}
+      </li>
+    </ul>
+  </div>
+  <div style="float:left;width:300px;">
+    <h3>BehaviorSubject</h3>
+    <ul>
+      <li *ngFor="let user of usersBehaviorSubject$ | async">
+        {{user.name.first}} {{user.name.last}}
+      </li>
+    </ul>
+  </div>
+</div>

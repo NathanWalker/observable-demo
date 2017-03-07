@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+nav {
+  display: block;
+  margin: 10px;
+}
+
+nav a {
+  padding:5px 15px;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+.action-btns {
+  margin: 5px 20px;
+}
+
+.action-btns button:last-child {
+  margin-left: 20px;
+}
+
+button {
+  font-size:20px;
+  background-color:#3280CF;
+  color:#fff;
+  padding:5px 10px;
+  border:0;
+
+}
+
+ul li {
+  list-style: none;
+  font-size:18px;
+}
