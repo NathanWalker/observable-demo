@@ -3,17 +3,17 @@
 </div>
 <div>
   <div style="float:left;width:300px;">
-    <h3>Subject</h3>
+    <h3>All Users</h3>
     <ul>
-      <li *ngFor="let user of usersSubject$ | async">
+      <li *ngFor="let user of (users$ | async)?.allUsers">
         {{user.name.first}} {{user.name.last}}
       </li>
     </ul>
   </div>
   <div style="float:left;width:300px;">
-    <h3>BehaviorSubject</h3>
+    <h3>More Users</h3>
     <ul>
-      <li *ngFor="let user of usersBehaviorSubject$ | async">
+      <li *ngFor="let user of (users$ | async)?.moreUsers">
         {{user.name.first}} {{user.name.last}}
       </li>
     </ul>

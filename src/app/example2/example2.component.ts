@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import * as userActions from '../core/actions/user.action';
 
 @Component({
   selector: 'app-example2',
@@ -11,28 +13,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class Example2Component {
 
-  public usersSubject$: Subject<any> = new Subject();
-  public usersBehaviorSubject$: BehaviorSubject<Array<any>> = new BehaviorSubject([
-    { name: { first: 'Zack', last: 'Chapple' } },
-    { name: { first: 'Mark', last: 'Pieszak' } },
-    { name: { first: 'Patrick', last: 'Stapleton' } },
-    { name: { first: 'Garland', last: 'Riley' } }
-  ]);
+  users$: Observable<any>;
 
-  constructor(private http: Http) { }
+  constructor(private store: Store<any>) {
+    this.users$ = store.select('user');
+   }
+
 
   public getUser() {
-    this.http.get('https://randomuser.me/api/?results=2')
-      .map(r => r.json().results)
-      .subscribe((res) => {
-
-        // Subject
-        this.usersSubject$.next(res);
-
-        // BehaviorSubject
-        this.usersBehaviorSubject$.next([...this.usersBehaviorSubject$.getValue(), ...res]);
-
-      });
+    this.store.dispatch(new userActions.FetchMoreAction({ results: Math.floor(Math.random()*1000)}));
   }
 
 }

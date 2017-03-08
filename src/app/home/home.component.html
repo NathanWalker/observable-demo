@@ -2,7 +2,7 @@
   <button (click)="getUser()">Get Users</button>
 </div>
 <ul>
-  <li *ngFor="let user of users$ | async">
+  <li *ngFor="let user of (users$ | async)?.allUsers">
     {{user.name.first}} {{user.name.last}}
   </li>
 </ul>
